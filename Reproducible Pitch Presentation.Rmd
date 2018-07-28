@@ -1,0 +1,84 @@
+---
+title: "Reproducible Pitch Presentation"
+author: "KARTHIK Theivendran"
+highlighter : highlight.js
+date: "29 July 2018"
+output: 
+  ioslides_presentation: 
+    incremental: yes
+job : "Reproducible Pitch Presentation"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Reproducible Pitch
+
+
+
+URL: <https://github.com/karthikmca39/Data-Products-Shiny-Application>
+
+Find here all the data that have been use for this presentation and also for the first part of the data Science Project. "First, i have created a Shiny application and deploy it on Rstudio's servers.Second, i used Rstudio Presenter to prepare a reproducible pitch presentation about your application."
+
+See the Regression Models Course Project
+
+Find all details here :
+URL: <https://class.coursera.org/devdataprod-007>
+URL: <https://class.coursera.org/devdataprod-007/human_grading/view/courses/972606/assessments/5/submissions>
+
+
+
+## mtcars dataset
+
+Motor Trend Car Road Tests :
+The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).
+
+Source :
+Henderson and Velleman (1981), Building multiple regression models interactively. Biometrics, 37, 391–411.
+```{r echo = TRUE}
+library(datasets)
+head(mtcars, 3)
+```
+
+
+## mtcars dataset - Format
+
+A data frame with 32 observations on 11 variables.
+
+- mpg: Miles/(US) gallon
+- cyl: Number of cylinders
+- disp: Displacement (cu.in.)
+- hp: Gross horsepower
+- drat: Rear axle ratio
+- wt: Weight (1000 lbs)
+- qsec: 1/4 mile time
+- vs: V/S
+- am: Transmission (0 = automatic, 1 = manual)
+- gear: Number of forward gears
+- carb: Number of carburetors
+
+
+## Analysis - main code
+
+
+formulaTextPoint <- reactive({
+    paste("mpg ~", "as.integer(", input$variable, ")")  })
+    
+  
+  fit <- reactive({
+    lm(as.formula(formulaTextPoint()), data=mpgData)  })
+    
+  
+  output$fit <- renderPrint({
+    summary(fit()) })
+    
+  
+  output$mpgPlot <- renderPlot({
+    with(mpgData, {
+      plot(as.formula(formulaTextPoint()))
+      abline(fit(), col=2)
+    })  })
+
+
+

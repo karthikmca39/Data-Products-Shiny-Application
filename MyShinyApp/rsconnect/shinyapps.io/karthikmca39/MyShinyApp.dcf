@@ -1,0 +1,12 @@
+name: MyShinyApp
+title: MyShinyApp
+username:
+account: karthikmca39
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 390326
+bundleId: 1505185
+url: https://karthikmca39.shinyapps.io/MyShinyApp/
+when: 1532802313.58396
+asMultiple: FALSE
+asStatic: FALSE
