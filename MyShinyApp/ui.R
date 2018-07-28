@@ -86,8 +86,8 @@ shinyUI(
              tabPanel("Go back to my Github repository",
                       a("https://github.com/karthikmca39/Data-Products-Shiny-Application"),
                       hr(),
-                      h2("I hope you like the Shiny App"),
-                      h2("The name of the repositorie is DataProducts")
+                      h2("I hope you like my Shiny App"),
+                      h2("The name of the repositorie is Data-Products-Shiny-Application")
              )
   )
 )
